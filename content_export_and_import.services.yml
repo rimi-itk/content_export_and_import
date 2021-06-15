@@ -1,0 +1,10 @@
+services:
+  content_export_and_import.node_exporter:
+    class: Drupal\content_export_and_import\Export\NodeExporter
+    arguments:
+      - '@serializer'
+
+  content_export_and_import.fixture:
+    class: Drupal\content_export_and_import\Fixture\Fixture
+    tags:
+      - { name: content_fixture }

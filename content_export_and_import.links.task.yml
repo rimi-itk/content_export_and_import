@@ -1,0 +1,5 @@
+content_export_and_import.export_node:
+  title: 'Export'
+  route_name: content_export_and_import.export_node
+  base_route: entity.node.canonical
+  weight: 100

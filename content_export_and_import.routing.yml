@@ -1,0 +1,11 @@
+content_export_and_import.export_node:
+  path: '/content_export_and_import/export/node/{node}'
+  defaults:
+    _controller: '\Drupal\content_export_and_import\Controller\ExportController::exportNode'
+    _title: 'Export node'
+  requirements:
+    _permission: 'access content'
+  options:
+    parameters:
+      node:
+        type: entity:node
