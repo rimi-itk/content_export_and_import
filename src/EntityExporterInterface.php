@@ -20,8 +20,8 @@ interface EntityExporterInterface {
   public function getExports(): array;
 
   /**
-   * Get entity.
+   * Load entity.
    */
-  public function getEntity(string $entityType, string $entityId, string $format = 'json'): ?EntityInterface;
+  public function loadEntity(string $entityType, string $entityId, string $format = 'json'): ?EntityInterface;
 
 }

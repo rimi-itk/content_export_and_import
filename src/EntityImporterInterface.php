@@ -10,8 +10,8 @@ use Drupal\Core\Entity\EntityInterface;
 interface EntityImporterInterface {
 
   /**
-   * Import an entity.
+   * Import entity.
    */
-  public function importEntity(EntityInterface $entity): bool;
+  public function importEntity(EntityInterface $entity): EntityInterface;
 
 }

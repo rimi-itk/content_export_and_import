@@ -73,7 +73,7 @@ class EntityExporter implements EntityExporterInterface {
   /**
    * {@inheritdoc}
    */
-  public function getEntity(string $entityType, string $entityId, string $format = 'json'): ?EntityInterface {
+  public function loadEntity(string $entityType, string $entityId, string $format = 'json'): ?EntityInterface {
     $filename = $this->getExportFilename($entityType, $entityId, $format);
 
     if (!file_exists($filename)) {

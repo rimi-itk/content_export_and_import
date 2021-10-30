@@ -8,28 +8,22 @@ entity_export_and_import.index:
     _permission: 'access entity'
     # _custom_access: '\Drupal\entity_export_and_import\Controller\ExportController::access'
 
-entity_export_and_import.import:
-  path: '/entity_export_and_import/import/{entity_type}/{entity_id}'
-  defaults:
-    _controller: '\Drupal\entity_export_and_import\Controller\ExportController::import'
-    _title_callback: '\Drupal\entity_export_and_import\Controller\ExportController::importTitle'
-  requirements:
-    # @todo
-    _permission: 'access entity'
-    _custom_access: '\Drupal\entity_export_and_import\Controller\ExportController::importAccess'
-
 entity_export_and_import.export:
   path: '/entity_export_and_import/export/{entity_type}/{entity_id}'
   defaults:
-    _controller: '\Drupal\entity_export_and_import\Controller\ExportController::export'
-    _title_callback: '\Drupal\entity_export_and_import\Controller\ExportController::exportTitle'
+    _form: '\Drupal\entity_export_and_import\Form\ExportForm'
+    _title_callback: '\Drupal\entity_export_and_import\Form\ExportForm::title'
+  options:
+    no_cache: 'TRUE'
   requirements:
-    _custom_access: '\Drupal\entity_export_and_import\Controller\ExportController::exportAccess'
+    _custom_access: '\Drupal\entity_export_and_import\Form\ExportForm::access'
 
-entity_export_and_import.export_node:
-  path: '/entity_export_and_import/export/node/{node}'
+entity_export_and_import.import:
+  path: '/entity_export_and_import/import/{entity_type}/{entity_id}'
   defaults:
-    _controller: '\Drupal\entity_export_and_import\Controller\ExportController::exportNode'
-    _title_callback: '\Drupal\entity_export_and_import\Controller\ExportController::exportNodeTitle'
+    _form: '\Drupal\entity_export_and_import\Form\ImportForm'
+    _title_callback: '\Drupal\entity_export_and_import\Form\ImportForm::title'
+  options:
+    no_cache: 'TRUE'
   requirements:
-    _custom_access: '\Drupal\entity_export_and_import\Controller\ExportController::exportNodeAccess'
+    _custom_access: '\Drupal\entity_export_and_import\Form\ImportForm::access'

@@ -86,9 +86,9 @@ namespace Drupal\entity_export_and_import\ProxyClass {
         /**
          * {@inheritdoc}
          */
-        public function getEntity(string $entityType, string $entityId, string $format = 'json'): ?\Drupal\Core\Entity\EntityInterface
+        public function loadEntity(string $entityType, string $entityId, string $format = 'json'): ?\Drupal\Core\Entity\EntityInterface
         {
-            return $this->lazyLoadItself()->getEntity($entityType, $entityId, $format);
+            return $this->lazyLoadItself()->loadEntity($entityType, $entityId, $format);
         }
 
     }
