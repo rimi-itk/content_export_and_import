@@ -1,10 +1,8 @@
 services:
-  content_export_and_import.node_exporter:
-    class: Drupal\content_export_and_import\Export\NodeExporter
+  Drupal\content_export_and_import\Export\EntityExporter:
     arguments:
       - '@serializer'
+      - '@file_system'
 
-  content_export_and_import.fixture:
-    class: Drupal\content_export_and_import\Fixture\Fixture
-    tags:
-      - { name: content_fixture }
+  Drupal\content_export_and_import\Export\EntityImporter:
+    arguments: []

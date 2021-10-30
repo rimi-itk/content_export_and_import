@@ -22,3 +22,16 @@ function content_export_and_import_help($route_name, RouteMatchInterface $route_
     default:
   }
 }
+
+/**
+ * Implements hook_theme().
+ */
+function content_export_and_import_theme($existing, $type, $theme, $path) {
+  return [
+    'content_export_and_import_index' => [
+      'variables' => [
+        'exports' => NULL,
+      ],
+    ],
+  ];
+}
