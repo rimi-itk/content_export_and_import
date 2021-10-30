@@ -10,7 +10,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 /**
  * Entity exporter.
  */
-class EntityExporter {
+class EntityExporter implements EntityExporterInterface {
   /**
    * The serializer.
    *
@@ -34,7 +34,7 @@ class EntityExporter {
   }
 
   /**
-   * Export an entity.
+   * {@inheritdoc}
    */
   public function exportEntity(EntityInterface $entity, $preview = TRUE) {
     $format = 'json';
@@ -52,7 +52,7 @@ class EntityExporter {
   }
 
   /**
-   * Get exports.
+   * {@inheritdoc}
    */
   public function getExports(): array {
     $files = $this->fileSystem->scanDirectory($this->getExportDirectory(), '/\.json$/');
@@ -66,7 +66,7 @@ class EntityExporter {
   }
 
   /**
-   * Get entity.
+   * {@inheritdoc}
    */
   public function getEntity(string $entityType, string $entityId, string $format = 'json'): ?EntityInterface {
     $filename = $this->getExportFilename($entityType, $entityId, $format);

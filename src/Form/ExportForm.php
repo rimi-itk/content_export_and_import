@@ -2,7 +2,7 @@
 
 namespace Drupal\content_export_and_import\Form;
 
-use Drupal\content_export_and_import\Export\EntityExporter;
+use Drupal\content_export_and_import\Export\EntityExporterInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -15,7 +15,7 @@ class ExportForm extends FormBase {
   /**
    * The entity exporter.
    *
-   * @var \Drupal\content_export_and_import\Export\EntityExporter
+   * @var \Drupal\content_export_and_import\Export\EntityExporterInterface
    */
   private $entityExporter;
 
@@ -29,7 +29,7 @@ class ExportForm extends FormBase {
   /**
    * {@inheritdoc}
    */
-  public function __construct(EntityExporter $entityExporter) {
+  public function __construct(EntityExporterInterface $entityExporter) {
     $this->entityExporter = $entityExporter;
   }
 
@@ -38,7 +38,7 @@ class ExportForm extends FormBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get(EntityExporter::class)
+      $container->get('content_export_and_import.entity_exporter')
     );
   }
 

@@ -1,8 +1,11 @@
 services:
-  Drupal\content_export_and_import\Export\EntityExporter:
+  content_export_and_import.entity_exporter:
+    class: Drupal\content_export_and_import\Export\EntityExporter
+    lazy: true
     arguments:
       - '@serializer'
       - '@file_system'
 
-  Drupal\content_export_and_import\Export\EntityImporter:
-    arguments: []
+  content_export_and_import.entity_importer:
+    class: Drupal\content_export_and_import\Export\EntityImporter
+    lazy: true

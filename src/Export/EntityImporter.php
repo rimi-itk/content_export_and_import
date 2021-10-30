@@ -8,10 +8,10 @@ use Drupal\Core\Entity\EntityStorageException;
 /**
  * Entity importer.
  */
-class EntityImporter {
+class EntityImporter implements EntityImporterInterface {
 
   /**
-   * Import an entity.
+   * {@inheritdoc}
    */
   public function importEntity(EntityInterface $entity) {
     try {

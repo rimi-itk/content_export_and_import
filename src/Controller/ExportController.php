@@ -2,12 +2,12 @@
 
 namespace Drupal\content_export_and_import\Controller;
 
-use Drupal\content_export_and_import\Export\EntityImporter;
+use Drupal\content_export_and_import\Export\EntityExporterInterface;
+use Drupal\content_export_and_import\Export\EntityImporterInterface;
 use Drupal\content_export_and_import\Form\ExportForm;
 use Drupal\content_export_and_import\Form\ImportForm;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\content_export_and_import\Export\EntityExporter;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -25,21 +25,21 @@ class ExportController extends ControllerBase {
   /**
    * The entity exporter.
    *
-   * @var \Drupal\content_export_and_import\Export\EntityExporter
+   * @var \Drupal\content_export_and_import\Export\EntityExporterInterface
    */
   private $entityExporter;
 
   /**
    * The entity importer.
    *
-   * @var \Drupal\content_export_and_import\Export\EntityImporter
+   * @var \Drupal\content_export_and_import\Export\EntityImporterInterface
    */
   private $entityImporter;
 
   /**
    * {@inheritdoc}
    */
-  public function __construct(RequestStack $requestStack, EntityExporter $entityExporter, EntityImporter $entityImporter) {
+  public function __construct(RequestStack $requestStack, EntityExporterInterface $entityExporter, EntityImporterInterface $entityImporter) {
     $this->requestStack = $requestStack;
     $this->entityExporter = $entityExporter;
     $this->entityImporter = $entityImporter;
@@ -51,8 +51,8 @@ class ExportController extends ControllerBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('request_stack'),
-      $container->get(EntityExporter::class),
-      $container->get(EntityImporter::class)
+      $container->get('content_export_and_import.entity_exporter'),
+      $container->get('content_export_and_import.entity_importer'),
     );
   }
 
