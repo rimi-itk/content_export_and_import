@@ -1,6 +1,6 @@
-name: 'Content export and import'
+name: 'Entity export and import'
 type: module
-description: 'Content export and import'
+description: 'Entity export and import'
 package: 'Custom'
 core_version_requirement: ^9
 

@@ -2,17 +2,17 @@
 // phpcs:ignoreFile
 
 /**
- * This file was generated via php core/scripts/generate-proxy-class.php 'Drupal\content_export_and_import\Export\EntityImporter' "modules/custom/content_export_and_import/src".
+ * This file was generated via php core/scripts/generate-proxy-class.php 'Drupal\entity_export_and_import\EntityImporter' "modules/custom/entity_export_and_import/src".
  */
 
-namespace Drupal\content_export_and_import\ProxyClass\Export {
+namespace Drupal\entity_export_and_import\ProxyClass {
 
     /**
-     * Provides a proxy class for \Drupal\content_export_and_import\Export\EntityImporter.
+     * Provides a proxy class for \Drupal\entity_export_and_import\EntityImporter.
      *
      * @see \Drupal\Component\ProxyBuilder
      */
-    class EntityImporter implements \Drupal\content_export_and_import\Export\EntityImporterInterface
+    class EntityImporter implements \Drupal\entity_export_and_import\EntityImporterInterface
     {
 
         use \Drupal\Core\DependencyInjection\DependencySerializationTrait;
@@ -27,7 +27,7 @@ namespace Drupal\content_export_and_import\ProxyClass\Export {
         /**
          * The real proxied service, after it was lazy loaded.
          *
-         * @var \Drupal\content_export_and_import\Export\EntityImporter
+         * @var \Drupal\entity_export_and_import\EntityImporter
          */
         protected $service;
 
@@ -70,7 +70,7 @@ namespace Drupal\content_export_and_import\ProxyClass\Export {
         /**
          * {@inheritdoc}
          */
-        public function importEntity(\Drupal\Core\Entity\EntityInterface $entity)
+        public function importEntity(\Drupal\Core\Entity\EntityInterface $entity): bool
         {
             return $this->lazyLoadItself()->importEntity($entity);
         }

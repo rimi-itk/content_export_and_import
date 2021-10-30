@@ -1,5 +1,5 @@
 {
-    "name": "drupal/content_export_and_import",
+    "name": "drupal/entity_export_and_import",
     "description": "Content export and import",
     "type": "drupal-module",
     "license": "GPL-2.0+",

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\content_export_and_import\Export;
+namespace Drupal\entity_export_and_import;
 
 use Drupal\Core\Entity\EntityInterface;
 

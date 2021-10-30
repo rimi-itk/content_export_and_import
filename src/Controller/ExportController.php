@@ -1,11 +1,11 @@
 <?php
 
-namespace Drupal\content_export_and_import\Controller;
+namespace Drupal\entity_export_and_import\Controller;
 
-use Drupal\content_export_and_import\Export\EntityExporterInterface;
-use Drupal\content_export_and_import\Export\EntityImporterInterface;
-use Drupal\content_export_and_import\Form\ExportForm;
-use Drupal\content_export_and_import\Form\ImportForm;
+use Drupal\entity_export_and_import\EntityExporterInterface;
+use Drupal\entity_export_and_import\EntityImporterInterface;
+use Drupal\entity_export_and_import\Form\ExportForm;
+use Drupal\entity_export_and_import\Form\ImportForm;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -25,14 +25,14 @@ class ExportController extends ControllerBase {
   /**
    * The entity exporter.
    *
-   * @var \Drupal\content_export_and_import\Export\EntityExporterInterface
+   * @var \Drupal\entity_export_and_import\EntityExporterInterface
    */
   private $entityExporter;
 
   /**
    * The entity importer.
    *
-   * @var \Drupal\content_export_and_import\Export\EntityImporterInterface
+   * @var \Drupal\entity_export_and_import\EntityImporterInterface
    */
   private $entityImporter;
 
@@ -51,8 +51,8 @@ class ExportController extends ControllerBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('request_stack'),
-      $container->get('content_export_and_import.entity_exporter'),
-      $container->get('content_export_and_import.entity_importer'),
+      $container->get('entity_export_and_import.entity_exporter'),
+      $container->get('entity_export_and_import.entity_importer'),
     );
   }
 
@@ -61,7 +61,7 @@ class ExportController extends ControllerBase {
    */
   public function index() {
     return [
-      '#theme' => 'content_export_and_import_index',
+      '#theme' => 'entity_export_and_import_index',
       '#exports' => $this->entityExporter->getExports(),
     ];
   }
@@ -76,7 +76,7 @@ class ExportController extends ControllerBase {
     if ('POST' === $request->getMethod()) {
       $status = $this->entityExporter->exportEntity($entity, FALSE);
 
-      return $this->redirect('content_export_and_import.export', [
+      return $this->redirect('entity_export_and_import.export', [
         'entity_type' => $entity->getEntityTypeId(),
         'entity_id' => $entity->id(),
         'status' => json_encode($status),
@@ -147,7 +147,7 @@ class ExportController extends ControllerBase {
       else {
         $this->messenger()->addError($this->t('Error importing %label', ['%label' => $entity->label()]));
 
-        return $this->redirect('content_export_and_import.import', [
+        return $this->redirect('entity_export_and_import.import', [
           'entity_type' => $entity->getEntityTypeId(),
           'entity_id' => $entity->id(),
           'status' => json_encode($status),

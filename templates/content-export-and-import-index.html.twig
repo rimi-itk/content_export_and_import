@@ -1,7 +1,0 @@
-<ul>
-  {% for export in exports %}
-    <li>
-      <a href="{{ path('content_export_and_import.import', export) }}">{{ export.entity_type }}/{{ export.entity_id }}</a>
-    </li>
-  {% endfor %}
-</ul>

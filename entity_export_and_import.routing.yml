@@ -1,0 +1,35 @@
+entity_export_and_import.index:
+  path: '/entity_export_and_import'
+  defaults:
+    _controller: '\Drupal\entity_export_and_import\Controller\ExportController::index'
+    _title: 'Entity exports'
+  requirements:
+    # @todo
+    _permission: 'access entity'
+    # _custom_access: '\Drupal\entity_export_and_import\Controller\ExportController::access'
+
+entity_export_and_import.import:
+  path: '/entity_export_and_import/import/{entity_type}/{entity_id}'
+  defaults:
+    _controller: '\Drupal\entity_export_and_import\Controller\ExportController::import'
+    _title_callback: '\Drupal\entity_export_and_import\Controller\ExportController::importTitle'
+  requirements:
+    # @todo
+    _permission: 'access entity'
+    _custom_access: '\Drupal\entity_export_and_import\Controller\ExportController::importAccess'
+
+entity_export_and_import.export:
+  path: '/entity_export_and_import/export/{entity_type}/{entity_id}'
+  defaults:
+    _controller: '\Drupal\entity_export_and_import\Controller\ExportController::export'
+    _title_callback: '\Drupal\entity_export_and_import\Controller\ExportController::exportTitle'
+  requirements:
+    _custom_access: '\Drupal\entity_export_and_import\Controller\ExportController::exportAccess'
+
+entity_export_and_import.export_node:
+  path: '/entity_export_and_import/export/node/{node}'
+  defaults:
+    _controller: '\Drupal\entity_export_and_import\Controller\ExportController::exportNode'
+    _title_callback: '\Drupal\entity_export_and_import\Controller\ExportController::exportNodeTitle'
+  requirements:
+    _custom_access: '\Drupal\entity_export_and_import\Controller\ExportController::exportNodeAccess'

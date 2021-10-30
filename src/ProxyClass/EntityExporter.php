@@ -2,17 +2,17 @@
 // phpcs:ignoreFile
 
 /**
- * This file was generated via php core/scripts/generate-proxy-class.php 'Drupal\content_export_and_import\Export\EntityExporter' "modules/custom/content_export_and_import/src".
+ * This file was generated via php core/scripts/generate-proxy-class.php 'Drupal\entity_export_and_import\EntityExporter' "modules/custom/entity_export_and_import/src".
  */
 
-namespace Drupal\content_export_and_import\ProxyClass\Export {
+namespace Drupal\entity_export_and_import\ProxyClass {
 
     /**
-     * Provides a proxy class for \Drupal\content_export_and_import\Export\EntityExporter.
+     * Provides a proxy class for \Drupal\entity_export_and_import\EntityExporter.
      *
      * @see \Drupal\Component\ProxyBuilder
      */
-    class EntityExporter implements \Drupal\content_export_and_import\Export\EntityExporterInterface
+    class EntityExporter implements \Drupal\entity_export_and_import\EntityExporterInterface
     {
 
         use \Drupal\Core\DependencyInjection\DependencySerializationTrait;
@@ -27,7 +27,7 @@ namespace Drupal\content_export_and_import\ProxyClass\Export {
         /**
          * The real proxied service, after it was lazy loaded.
          *
-         * @var \Drupal\content_export_and_import\Export\EntityExporter
+         * @var \Drupal\entity_export_and_import\EntityExporter
          */
         protected $service;
 

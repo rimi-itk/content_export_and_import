@@ -1,0 +1,11 @@
+services:
+  entity_export_and_import.entity_exporter:
+    class: Drupal\entity_export_and_import\EntityExporter
+    lazy: true
+    arguments:
+      - '@serializer'
+      - '@file_system'
+
+  entity_export_and_import.entity_importer:
+    class: Drupal\entity_export_and_import\EntityImporter
+    lazy: true

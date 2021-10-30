@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\content_export_and_import\Export;
+namespace Drupal\entity_export_and_import;
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\File\FileSystemInterface;
@@ -55,7 +55,12 @@ class EntityExporter implements EntityExporterInterface {
    * {@inheritdoc}
    */
   public function getExports(): array {
-    $files = $this->fileSystem->scanDirectory($this->getExportDirectory(), '/\.json$/');
+    $directory = $this->getExportDirectory();
+    if (!file_exists($directory)) {
+      return [];
+    }
+
+    $files = $this->fileSystem->scanDirectory($directory, '/\.json$/');
 
     return array_map(static function (object $info) {
       return [
@@ -91,7 +96,7 @@ class EntityExporter implements EntityExporterInterface {
    * Get export directory.
    */
   private function getExportDirectory(): string {
-    return 'public://content_export_and_import';
+    return 'public://entity_export_and_import';
   }
 
 }
