@@ -3,10 +3,11 @@ entity_export_and_import.index:
   defaults:
     _controller: '\Drupal\entity_export_and_import\Controller\ExportController::index'
     _title: 'Entity exports'
+  options:
+    _admin_route: TRUE
+    no_cache: 'TRUE'
   requirements:
-    # @todo
-    _permission: 'access entity'
-    # _custom_access: '\Drupal\entity_export_and_import\Controller\ExportController::access'
+    _permission: 'entity_export_and_import access exports'
 
 entity_export_and_import.export:
   path: '/entity_export_and_import/export/{entity_type}/{entity_id}'
@@ -14,6 +15,7 @@ entity_export_and_import.export:
     _form: '\Drupal\entity_export_and_import\Form\ExportForm'
     _title_callback: '\Drupal\entity_export_and_import\Form\ExportForm::title'
   options:
+    _admin_route: TRUE
     no_cache: 'TRUE'
   requirements:
     _custom_access: '\Drupal\entity_export_and_import\Form\ExportForm::access'
@@ -24,6 +26,7 @@ entity_export_and_import.import:
     _form: '\Drupal\entity_export_and_import\Form\ImportForm'
     _title_callback: '\Drupal\entity_export_and_import\Form\ImportForm::title'
   options:
+    _admin_route: TRUE
     no_cache: 'TRUE'
   requirements:
     _custom_access: '\Drupal\entity_export_and_import\Form\ImportForm::access'
