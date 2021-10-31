@@ -1,0 +1,7 @@
+entity_export_and_import access exports:
+  title: 'Access entity exports'
+  description: 'Access list of exported entities.'
+
+entity_export_and_import import entity:
+  title: 'Import entity'
+  description: 'Import entity.'

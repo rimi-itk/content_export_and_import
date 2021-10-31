@@ -1,0 +1,6 @@
+entity_export_and_import.export_node:
+  title: 'Export'
+  route_name: entity_export_and_import.export
+  base_route: entity.node.canonical
+  class: '\Drupal\entity_export_and_import\Plugin\Menu\NodeExportTab'
+  weight: 100
