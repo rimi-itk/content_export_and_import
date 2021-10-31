@@ -11,9 +11,16 @@
     ],
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
-        "drupal/coder": "^8.3"
+        "drupal/coder": "^8.3",
+        "mglaman/drupal-check": "^1.1"
     },
     "scripts": {
+        "code-analysis/drupal-check": [
+            "vendor/bin/drupal-check --deprecations --analysis --exclude-dir=vendor --exclude-dir=src/ProxyClass *.* src"
+        ],
+        "code-analysis": [
+            "@code-analysis/drupal-check"
+        ],
         "coding-standards-check/phpcs": [
             "vendor/bin/phpcs --standard=phpcs.xml.dist"
         ],
