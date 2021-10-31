@@ -2,14 +2,12 @@
 // phpcs:ignoreFile
 
 /**
- * This file was generated via php core/scripts/generate-proxy-class.php 'Drupal\entity_export_and_import\EntityImporter' "modules/custom/entity_export_and_import/src".
+ * This file was generated via php core/scripts/generate-proxy-class.php 'Drupal\entity_export_and_import\EntityImporter' "modules/contrib/entity_export_and_import/src".
  */
 
 namespace Drupal\entity_export_and_import\ProxyClass {
 
-  use Drupal\Core\Entity\EntityInterface;
-
-  /**
+    /**
      * Provides a proxy class for \Drupal\entity_export_and_import\EntityImporter.
      *
      * @see \Drupal\Component\ProxyBuilder
@@ -72,7 +70,7 @@ namespace Drupal\entity_export_and_import\ProxyClass {
         /**
          * {@inheritdoc}
          */
-        public function importEntity(\Drupal\Core\Entity\EntityInterface $entity): EntityInterface
+        public function importEntity(\Drupal\Core\Entity\EntityInterface $entity): \Drupal\Core\Entity\EntityInterface
         {
             return $this->lazyLoadItself()->importEntity($entity);
         }

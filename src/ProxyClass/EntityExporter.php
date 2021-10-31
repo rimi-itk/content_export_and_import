@@ -2,7 +2,7 @@
 // phpcs:ignoreFile
 
 /**
- * This file was generated via php core/scripts/generate-proxy-class.php 'Drupal\entity_export_and_import\EntityExporter' "modules/custom/entity_export_and_import/src".
+ * This file was generated via php core/scripts/generate-proxy-class.php 'Drupal\entity_export_and_import\EntityExporter' "modules/contrib/entity_export_and_import/src".
  */
 
 namespace Drupal\entity_export_and_import\ProxyClass {
