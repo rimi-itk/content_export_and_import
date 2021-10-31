@@ -1,5 +1,5 @@
 {
-    "name": "drupal/entity_export_and_import",
+    "name": "itk-dev/entity_export_and_import",
     "description": "Content export and import",
     "type": "drupal-module",
     "license": "MIT",
