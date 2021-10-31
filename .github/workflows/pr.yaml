@@ -110,4 +110,4 @@ jobs:
 
           # Check code
           composer --no-interaction --working-dir=drupal require --dev drupal/core-dev
-          cd drupal/web/modules/contrib/entity_export_and_import && composer --no-interaction install && composer code-analysis
+          (cd drupal/web/modules/contrib/entity_export_and_import && composer --no-interaction install && composer code-analysis)
